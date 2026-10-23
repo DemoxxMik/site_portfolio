@@ -1,0 +1,50 @@
+# ==========================================
+# Fichiers système et IDE (Spécifiques à votre machine)
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==========================================
+# Dépendances (Si vous utilisez des outils de build)
+# ==========================================
+node_modules/
+bower_components/
+.pnp/
+.pnp.js
+
+# ==========================================
+# Dossiers de Build / Distribution
+# (À ignorer si vous compilez votre code, ex: Sass, Less, Minification)
+# ==========================================
+dist/
+build/
+out/
+.sass-cache/
+.parcel-cache/
+.eslintcache
+.cache/
+
+# ==========================================
+# Fichiers de configuration locale et Secrets
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================================
+# Fichiers temporaires ou de backup
+# ==========================================
+*.bak
+*.tmp
+*.temp

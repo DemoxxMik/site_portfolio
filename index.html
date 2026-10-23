@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Titre et description : ce qu'affichent Google et les aperçus de lien -->
+  <title>Mikaël Mahussier</title>
+  <meta name="description" content="Portfolio de Mikaël Mahussier, étudiant en création numérique et en scénographie : installations interactives, 3D, design et scénographie.">
+
+  <!-- Aperçu quand on partage le lien (réseaux sociaux, messageries) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mikaël Mahussier">
+  <meta property="og:description" content="Portfolio de Mikaël Mahussier, étudiant en création numérique et en scénographie.">
+  <meta property="og:url" content="https://mikaelmahussier.com/">
+  <meta property="og:image" content="https://mikaelmahussier.com/assets/videos/fond-accueil.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Les deux langues du site : indique à Google quelle page montrer à qui -->
+  <link rel="alternate" hreflang="fr" href="https://mikaelmahussier.com/">
+  <link rel="alternate" hreflang="en" href="https://mikaelmahussier.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://mikaelmahussier.com/">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Les scripts : « defer » = on les lance une fois la page lue, dans cet ordre -->
+  <script src="data/projets.js" defer></script>
+  <script src="js/affichage.js" defer></script>
+  <script src="js/panneaux.js" defer></script>
+  <script src="js/titre-ajuste.js" defer></script>
+  <script src="js/visionneuse.js" defer></script>
+</head>
+<body>
+
+  <!-- Fond : la vidéo plein écran -->
+  <!-- Trois versions de la même vidéo : le navigateur prend la première qu'il sait lire.
+       1. HEVC : ton fichier d'origine, tel quel (Chrome, Edge, Safari sur la plupart des ordinateurs récents)
+       2. AV1 : format récent et très léger (Firefox et les autres)
+       3. H.264 : le format le plus ancien, lu partout, en dernier recours -->
+  <video class="fond-video" poster="assets/videos/fond-accueil.jpg" autoplay muted loop playsinline aria-hidden="true">
+    <source src="assets/videos/fond-accueil-hevc.mp4" type='video/mp4; codecs="hvc1"'>
+    <source src="assets/videos/fond-accueil-av1.mp4" type='video/mp4; codecs="av01.0.08M.08"'>
+    <source src="assets/videos/fond-accueil.mp4" type="video/mp4">
+  </video>
+
+  <!-- Panneau d'accueil, en haut à gauche -->
+  <header class="accueil">
+    <div class="cadre">
+      <h1 class="titre-ajuste">Mikaël Mahussier</h1>
+      <p>Bonjour, je suis un étudiant en création numérique et en scénographie :)</p>
+      <hr>
+      <nav aria-label="Sections">
+        <ul class="accueil-boutons">
+          <li><a class="bouton bouton-large" href="#3dart">3D art</a></li>
+          <li><a class="bouton bouton-large" href="#design">Design</a></li>
+          <li><a class="bouton bouton-large" href="#scenography">Scénographie</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Boutons du bas à droite : changer de langue et « À propos » -->
+  <div class="lien-a-propos">
+    <a class="bouton lien-langue" href="en/index.html" data-page="en/index.html" hreflang="en" lang="en" aria-label="English version">EN</a>
+    <a class="bouton" href="#a-propos">À propos</a>
+  </div>
+
+  <!-- Calque des sections et des projets : rempli par js/affichage.js -->
+  <div class="calque" id="calque">
+    <main class="panneau cadre" id="panneau" tabindex="-1"></main>
+  </div>
+
+  <!-- Panneau « À propos », qui glisse depuis la droite -->
+  <div class="calque calque-a-propos" id="calque-a-propos">
+    <section class="panneau cadre" id="panneau-a-propos" tabindex="-1" aria-labelledby="titre-a-propos">
+      <div class="a-propos-haut">
+        <a class="bouton" href="#">Fermer</a>
+      </div>
+      <h1 id="titre-a-propos">À propos</h1>
+
+      <p class="a-propos-intro">Bonjour et bienvenue !</p>
+
+      <div class="texte">
+        <p>Je m’appelle Mikaël Mahussier. Je suis étudiant en Master de création numérique à l’ESADSE.
+        J’aime travailler avec l’animation, la scénographie et le jeu vidéo pour explorer les émotions, la manière dont elles nous traversent, parfois avec douceur, parfois avec plus d’intensité.</p>
+        <p>Je tente de donner forme aux sentiments que l’on exprime moins souvent, comme l’anxiété ou certaines peurs, afin de les rendre plus tangibles et plus faciles à appréhender.</p>
+      </div>
+
+      <p class="a-propos-contact"><b>Pour me contacter :</b><br>
+        <a href="mailto:mikael.mahussier@gmail.com">mikael.mahussier@gmail.com</a></p>
+    </section>
+  </div>
+
+  <!-- Visionneuse : affiche une image en grand (voir js/visionneuse.js) -->
+  <dialog class="visionneuse" id="visionneuse" aria-label="Image en grand">
+    <div class="visionneuse-scene">
+      <img src="" alt="">
+    </div>
+    <p class="visionneuse-legende"></p>
+    <p class="visionneuse-compteur"></p>
+    <button class="visionneuse-bouton visionneuse-fermer" type="button" aria-label="Fermer">✕</button>
+    <button class="visionneuse-bouton visionneuse-precedente" type="button" aria-label="Image précédente">←</button>
+    <button class="visionneuse-bouton visionneuse-suivante" type="button" aria-label="Image suivante">→</button>
+  </dialog>
+
+</body>
+</html>
